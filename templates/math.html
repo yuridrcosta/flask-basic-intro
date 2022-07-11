@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Game</title>
+</head>
+<body>
+
+    {% if get_flashed_messages() %}
+        {% for msg in get_flashed_messages() %}
+            <div>  
+                {{msg}}<br/>    
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <h1>Math Game</h1>
+    <p>Quanto é {{num1}} + {{num2}}?</p>
+    <form action="/math-game" method="post">
+        <input type="text" name="answer" class="text">
+        <input type="hidden" name="correct_answer" value="{{correct_answer}}">
+        <input type="submit" value="Verifique a sua resposta!">
+    </form>
+</body>
+</html>
